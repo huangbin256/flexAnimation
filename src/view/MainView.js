@@ -19,12 +19,16 @@ d.register("MainView", {
 
 	postDisplay: function(data, config){
 		var view = this;
-		showView.call(view);
 	}, 
 	// --------- /View Interface Implement --------- //
 
 	// --------- Events --------- //
 	events: {
+		"click; .nav li": function(evt){
+			var view = this;
+			var nav = evt.target.getAttribute("data-nav");
+			window.location.hash = nav;
+		}
 	},
 	// --------- /Events --------- //
 
@@ -33,7 +37,6 @@ d.register("MainView", {
 		// event for url changes
 		"routeHub;CHANGE": function(event){
 			var view = this;
-
 			showView.call(view);
 		}
 	}
@@ -43,24 +46,17 @@ d.register("MainView", {
 
 // hashpath / Template View mapping
 var viewNameByPath = {
-	"todo": "TodoView"
+	"move": "MoveView",
+	"rotate": "RotateView"
 };
 
 function showView(){
 	var view = this;
-	// var path0 = route.pathAt(0);
-	// var path1 = route.pathAt(1);
-	// var contentViewName = viewNameByPath[path0];
+	var path0 = route.pathAt(0);
+	var contentViewName = viewNameByPath[path0] || "MoveView";
 
-	// var contentEl = d.first(view.el, ".MainView-content");
-	// d.empty(contentEl);
-	// if(app.pref.get("username")){
-	// 	if(!path0 || path0 == "todo"){
-	// 		d.display("TodoView", contentEl, {id: path1});
-	// 	}
-	// }else{
-	// 	d.display("LoginView", contentEl);
-	// }
-
+	var contentEl = d.first(view.el, ".MainView-content");
+	d.empty(contentEl);
+	d.display(contentViewName, contentEl);
 }
 
