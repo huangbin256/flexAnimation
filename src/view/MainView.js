@@ -46,14 +46,14 @@ d.register("MainView", {
 
 // hashpath / Template View mapping
 var viewNameByPath = {
-	"move": "MoveView",
+	"football": "FootballView",
 	"rotate": "RotateView"
 };
 
 function showView(){
 	var view = this;
 	var path0 = route.pathAt(0);
-	var contentViewName = viewNameByPath[path0] || "MoveView";
+	var contentViewName = viewNameByPath[path0] || "FootballView";
 
 	var contentEl = d.first(view.el, ".MainView-content");
 	d.empty(contentEl);
