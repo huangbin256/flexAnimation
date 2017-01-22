@@ -1,16 +1,19 @@
 @import "../pcss/utils.pcss";
 
 
-.RotateView{
+.CreateJSFootballView{
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	.container{
+		position:relative;
 		flex: 1;
-		margin: 16px;
-		.box{
-			margin: 100px auto;
-			transform: rotate(0deg); 
+		display: flex;
+		flex-direction: column;
+		margin: 30px;
+		border-bottom: 1px solid #ccc;
+		canvas{
+			flex: 1;
 		}
 	}
 	.toolbar{

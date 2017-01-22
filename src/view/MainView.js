@@ -47,7 +47,7 @@ d.register("MainView", {
 // hashpath / Template View mapping
 var viewNameByPath = {
 	"football": "FootballView",
-	"rotate": "RotateView"
+	"createjs-football": "CreateJSFootballView"
 };
 
 function showView(){
