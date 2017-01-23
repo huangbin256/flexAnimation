@@ -23,10 +23,6 @@ d.register("FootballView", {
 		"click; button": function(evt){
 			var view = this;
 			playFootball.call(view);
-		},
-		"webkitAnimationEnd; .football": function(evt){
-			var view = this;
-			stopFootball.call(view);
 		}
 	},
 	// --------- /Events --------- //
@@ -37,10 +33,4 @@ function playFootball(){
 	var view = this;
 	var footballEl = d.first(view.el, ".football");
 	footballEl.classList.add("playing");
-}
-
-function stopFootball(){
-	var view = this;
-	var footballEl = d.first(view.el, ".football");
-	footballEl.classList.remove("playing");
 }
