@@ -23,7 +23,7 @@ d.register("CreateJSFootballView", {
 	events: {
 		"click; button": function(evt){
 			var view = this;
-			createjs.Ticker.paused = false;
+			playBall.call(view);
 		}
 	},
 	// --------- /Events --------- //
@@ -40,11 +40,24 @@ function init(){
 	canvas.height = h;
 
 	var stage = new createjs.Stage(canvas);
+	if (window.devicePixelRatio) {
+		// grab the width and height from canvas
+		var height = canvas.getAttribute('height');
+		var width = canvas.getAttribute('width');
+		// reset the canvas width and height with window.devicePixelRatio applied
+		canvas.setAttribute('width', Math.round(width * window.devicePixelRatio));
+		canvas.setAttribute('height', Math.round( height * window.devicePixelRatio));
+		// force the canvas back to the original size using css
+		canvas.style.width = width+"px";
+		canvas.style.height = height+"px";
+		// set CreateJS to render scaled
+		stage.scaleX = stage.scaleY = window.devicePixelRatio;
+	}
 
 	var image = new Image();
 	image.src = "./imgs/football.png";
-	var sizeX = 80;
-	var sizeY = 80;
+	var sizeX = 50;
+	var sizeY = 50;
 	var ball = null;
 	image.onload = function(evt){
 		ball = new createjs.Bitmap(event.target);
@@ -56,10 +69,10 @@ function init(){
 
 
 		createjs.Tween.get(ball, { loop: true })
-			.to({ y: h-sizeY }, 1000, createjs.Ease.getPowIn(2))
-			.to({ y: h-sizeY + 40, scaleY: ball.scaleY / 2 }, 500, createjs.Ease.getPowOut(2))
-			.to({ y: h-sizeY, scaleY: ball.scaleY}, 500, createjs.Ease.getPowIn(2))
-			.to({ y: 100}, 800, createjs.Ease.getPowIn(2));
+			.to({ y: h-sizeY}, 1000, createjs.Ease.quartIn)
+			.to({ y: h-sizeY + 10, scaleY: ball.scaleY / 1.2}, 500, createjs.Ease.quartOut)
+			.to({ y: h-sizeY, scaleY: ball.scaleY}, 500, createjs.Ease.quartIn)
+			.to({ y: 100}, 1000, createjs.Ease.quartOut);
 
 		createjs.Ticker.setFPS(60);
 		createjs.Ticker.addEventListener("tick", stage);
@@ -72,7 +85,5 @@ function init(){
 
 function playBall(){
 	var view = this;
-}
-
-function handleImageLoad(event) {
+	createjs.Ticker.paused = false;
 }
