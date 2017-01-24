@@ -68,15 +68,19 @@ function init(){
 		stage.addChild(ball);
 
 
+		ball.regX = ball.getBounds().width / 2;
+		ball.regY = ball.getBounds().height / 2;
 		createjs.Tween.get(ball, { loop: true })
-			.to({ y: h-sizeY}, 1000, createjs.Ease.quartIn)
-			.to({ y: h-sizeY + 10, scaleY: ball.scaleY / 1.2}, 500, createjs.Ease.quartOut)
-			.to({ y: h-sizeY, scaleY: ball.scaleY}, 500, createjs.Ease.quartIn)
-			.to({ y: 100}, 1000, createjs.Ease.quartOut);
+			.to({ y: h-sizeY + 25, rotation: 180}, 1000, createjs.Ease.quartIn)
+			.to({ y: h-sizeY + 30, scaleY: ball.scaleY / 1.2}, 500, createjs.Ease.quartOut)
+			.to({ y: h-sizeY + 25, scaleY: ball.scaleY}, 500, createjs.Ease.quartIn)
+			.to({ y: 100, rotation: 360}, 1000, createjs.Ease.quartOut);
+
 
 		createjs.Ticker.setFPS(60);
 		createjs.Ticker.addEventListener("tick", stage);
 		createjs.Ticker.paused = true;
+
 	};
 
 }
