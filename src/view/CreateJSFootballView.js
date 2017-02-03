@@ -71,10 +71,10 @@ function init(){
 		ball.regX = ball.getBounds().width / 2;
 		ball.regY = ball.getBounds().height / 2;
 		createjs.Tween.get(ball, { loop: true })
-			.to({ y: h-sizeY + 25, rotation: 180}, 1000, createjs.Ease.quartIn)
-			.to({ y: h-sizeY + 30, scaleY: ball.scaleY / 1.2}, 500, createjs.Ease.quartOut)
-			.to({ y: h-sizeY + 25, scaleY: ball.scaleY}, 500, createjs.Ease.quartIn)
-			.to({ y: 100, rotation: 360}, 1000, createjs.Ease.quartOut);
+			.to({ y: h-sizeY + 25, rotation: 180}, 1000, createjs.Ease.getPowIn(2))
+			.to({ y: h-sizeY + 30, scaleY: ball.scaleY / 1.2}, 50, createjs.Ease.getPowOut(2))
+			.to({ y: h-sizeY + 25, scaleY: ball.scaleY}, 50, createjs.Ease.getPowIn(2))
+			.to({ y: 100, rotation: 360}, 1000, createjs.Ease.getPowOut(2));
 
 
 		createjs.Ticker.setFPS(60);
