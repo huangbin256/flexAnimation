@@ -48,7 +48,8 @@ d.register("MainView", {
 var viewNameByPath = {
 	"football": "FootballView",
 	"createjs-football": "CreateJSFootballView",
-	"walking": "WalkingView"
+	"walking": "WalkingView",
+	"clock": "ClockView"
 };
 
 function showView(){
