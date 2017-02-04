@@ -70,24 +70,30 @@ function init(){
 		var hourPointer = new createjs.Shape(graphics);
 		hourPointer.setBounds(0,0,6,50);
 		hourPointer.graphics.drawRect(0, 0, 6,50);
-		hourPointer.x = startX - 2;
+		hourPointer.x = startX + 1;
 		hourPointer.y = startY;
+		hourPointer.regX = 3;
+		hourPointer.regY = 0;
 		stage.addChild(hourPointer);
 
 		graphics = new createjs.Graphics().beginFill("#000000");
 		var minPointer = new createjs.Shape(graphics);
 		minPointer.setBounds(0,0,4,60);
 		minPointer.graphics.drawRect(0, 0, 4, 60);
-		minPointer.x = startX - 1;
+		minPointer.x = startX + 1.5;
 		minPointer.y = startY;
+		minPointer.regX = 2;
+		minPointer.regY = 0;
 		stage.addChild(minPointer);
 
 		graphics = new createjs.Graphics().beginFill("#9a0606");
 		var secPointer = new createjs.Shape(graphics);
 		secPointer.setBounds(0,0,2,70);
 		secPointer.graphics.drawRect(0, 0, 2, 70);
-		secPointer.x = startX;
+		secPointer.x = startX + 1.5;
 		secPointer.y = startY;
+		secPointer.regX = 1;
+		secPointer.regY = 0;
 		stage.addChild(secPointer);
 
 		createjs.Ticker.setFPS(60);
