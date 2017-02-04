@@ -95,11 +95,10 @@ function init(){
 			var now = new Date();
 			var secs = now.getSeconds();
 			var mins = now.getMinutes();
-			console.log(mins);
 			var hours = now.getHours() > 12 ? now.getHours() - 12 : now.getHours();
 			secPointer.rotation = secs * 6 + 180;
-			minPointer.rotation = mins * 6 + 180;
-			hourPointer.rotation = hours * 30 + 180;
+			minPointer.rotation = (mins + secs / 60) * 6 + 180;
+			hourPointer.rotation = (hours + mins / 60 + secs / 3600) * 30 + 180;
 			stage.update();
 		});
 		createjs.Ticker.paused = false;
