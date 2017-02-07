@@ -49,7 +49,8 @@ var viewNameByPath = {
 	"football": "FootballView",
 	"createjs-football": "CreateJSFootballView",
 	"walking": "WalkingView",
-	"clock": "ClockView"
+	"clock": "ClockView",
+	"egg": "EggView"
 };
 
 function showView(){
