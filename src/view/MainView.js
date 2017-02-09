@@ -51,7 +51,8 @@ var viewNameByPath = {
 	"walking": "WalkingView",
 	"clock": "ClockView",
 	"egg": "EggView",
-	"transform": "TransformView"
+	"transform": "TransformView",
+	"olympics": "OlympicsView"
 };
 
 function showView(){
