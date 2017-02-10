@@ -52,7 +52,8 @@ var viewNameByPath = {
 	"clock": "ClockView",
 	"egg": "EggView",
 	"transform": "TransformView",
-	"olympics": "OlympicsView"
+	"olympics": "OlympicsView",
+	"drawboard": "DrawboardView"
 };
 
 function showView(){
